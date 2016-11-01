@@ -38,17 +38,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.searchController.customSearchBar.searchIconColor = UIColor.orange
         self.searchController.customSearchBar.contentTintColor = UIColor.white
         self.searchController.customSearchBar.tintColor = UIColor.white
+        
         self.searchController.customSearchBar.containerBorderColor = UIColor.orange
         self.searchController.customSearchBar.containerBorderOffset = 5
         self.searchController.customSearchBar.containerBorderWidth = 1
-        self.searchController.customSearchBar.bottomBorder = 2.0
-        self.searchController.customSearchBar.rightBorder = 2.0
-        self.searchController.customSearchBar.leftBorder = 2.0
-        self.searchController.customSearchBar.topBorder = 2.0
+        self.searchController.customSearchBar.containerBottomBorder = true
+        self.searchController.customSearchBar.containerRightBorder = true
+        self.searchController.customSearchBar.containerLeftBorder = true
+        self.searchController.customSearchBar.containerTopBorder = true
         
-//        self.searchController.searchBar.setImage(UIImage(named:"Clear"), for: UISearchBarIcon.clear, state: .normal)
-//        self.searchController.searchBar.setImage(UIImage(named:"ClearHighlight"), for: UISearchBarIcon.clear, state: .highlighted)
-        
+        self.searchController.searchBar.setImage(UIImage(named:"Clear"), for: UISearchBarIcon.clear, state: .normal)
+        self.searchController.searchBar.setImage(UIImage(named:"ClearHighlight"), for: UISearchBarIcon.clear, state: .highlighted)
+        self.searchController.customSearchBar.tintForNormalClear = UIColor.orange
     }
 
     // --- UISearchResultsUpdating

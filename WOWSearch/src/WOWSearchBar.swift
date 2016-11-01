@@ -17,11 +17,6 @@ class WOWSearchBar: UISearchBar {
         case top
         case bottom
     }
-
-    private var leftBorderLayer : CALayer?
-    private var rightBorderLayer : CALayer?
-    private var topBorderLayer : CALayer?
-    private var bottomBorderLayer : CALayer?
     
     private var _shape = CAShapeLayer()
     private var _setup = false
@@ -109,7 +104,7 @@ class WOWSearchBar: UISearchBar {
      Border color for UITextField.
      */
     @IBInspectable
-    open var borderColor : UIColor? {
+    open var contentBorderColor : UIColor? {
         get {
             return nil
         }
@@ -122,7 +117,7 @@ class WOWSearchBar: UISearchBar {
      Border width for UITextField.
      */
     @IBInspectable
-    open var borderWidth : CGFloat {
+    open var contentBorderWidth : CGFloat {
         get {
             return textField?.layer.borderWidth != nil ? (textField?.layer.borderWidth)! : CGFloat(0.0)
         }
@@ -135,7 +130,7 @@ class WOWSearchBar: UISearchBar {
      Corner Radius for UITextField.
      */
     @IBInspectable
-    open var cornerRadius : CGFloat {
+    open var contentCornerRadius : CGFloat {
         get {
             return textField?.layer.cornerRadius != nil ? (textField?.layer.cornerRadius)! : CGFloat(0.0)
         }
@@ -233,28 +228,28 @@ class WOWSearchBar: UISearchBar {
      SearchBar left border width.
      */
     @IBInspectable
-    open var leftBorder: CGFloat = 0 {
+    open var containerLeftBorder: Bool = false {
         didSet {
             refreshDisplay()
         }
     }
     
     @IBInspectable
-    open var topBorder: CGFloat = 0 {
+    open var containerTopBorder: Bool = false {
         didSet {
             refreshDisplay()
         }
     }
     
     @IBInspectable
-    open var rightBorder: CGFloat = 0 {
+    open var containerRightBorder: Bool = false {
         didSet {
             refreshDisplay()
         }
     }
     
     @IBInspectable
-    open var bottomBorder: CGFloat = 0 {
+    open var containerBottomBorder: Bool = false {
         didSet {
             refreshDisplay()
         }
@@ -279,19 +274,19 @@ class WOWSearchBar: UISearchBar {
         
         let path = UIBezierPath()
         
-        if self.leftBorder > 0 {
+        if self.containerLeftBorder {
             path.move(to:CGPoint(x:self.containerBorderOffset, y:0))
             path.addLine(to:CGPoint(x:self.containerBorderOffset,y:self.frame.size.height))
         }
-        if self.rightBorder > 0 {
+        if self.containerRightBorder {
             path.move(to:CGPoint(x:self.frame.size.width - self.containerBorderOffset,y:0))
             path.addLine(to:CGPoint(x:self.frame.size.width - self.containerBorderOffset,y:self.frame.size.height))
         }
-        if self.bottomBorder > 0 {
+        if self.containerBottomBorder {
             path.move(to:CGPoint(x:0,y:self.frame.size.height - self.containerBorderOffset))
             path.addLine(to:CGPoint(x:self.frame.size.width,y:self.frame.size.height - self.containerBorderOffset))
         }
-        if self.topBorder > 0 {
+        if self.containerTopBorder {
             path.move(to:CGPoint(x:0,y:self.containerBorderOffset))
             path.addLine(to:CGPoint(x:self.frame.size.width,y:self.containerBorderOffset))
         }
