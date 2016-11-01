@@ -40,27 +40,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.searchController.customSearchBar.tintColor = UIColor.white
         self.searchController.customSearchBar.containerBorderColor = UIColor.orange
         self.searchController.customSearchBar.containerBorderOffset = 5
+        self.searchController.customSearchBar.containerBorderWidth = 1
         self.searchController.customSearchBar.bottomBorder = 2.0
-                
+        self.searchController.customSearchBar.rightBorder = 2.0
+        self.searchController.customSearchBar.leftBorder = 2.0
+        self.searchController.customSearchBar.topBorder = 2.0
+        
 //        self.searchController.searchBar.setImage(UIImage(named:"Clear"), for: UISearchBarIcon.clear, state: .normal)
 //        self.searchController.searchBar.setImage(UIImage(named:"ClearHighlight"), for: UISearchBarIcon.clear, state: .highlighted)
         
-        //self.searchController.searchBar.sizeToFit()
     }
 
     // --- UISearchResultsUpdating
     func updateSearchResults(for searchController: UISearchController)
     {
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        //self.searchController.searchBar.sizeToFit()
-        
-        print("searchbar:\(self.searchController.searchBar.frame)")
-        print("view:\(self.view.frame)")
-        print("navigationbar:\(self.navigationController?.navigationBar.frame)")
-        print("titleview:\(self.navigationItem.titleView?.frame)")
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

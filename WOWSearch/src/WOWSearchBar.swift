@@ -11,28 +11,25 @@ import UIKit
 @IBDesignable
 class WOWSearchBar: UISearchBar {
 
+    enum BorderType {
+        case left
+        case right
+        case top
+        case bottom
+    }
+
     private var leftBorderLayer : CALayer?
     private var rightBorderLayer : CALayer?
     private var topBorderLayer : CALayer?
     private var bottomBorderLayer : CALayer?
     
-    private var leftBorderView : UIView?
-    private var topBorderView : UIView?
-    private var rightBorderView : UIView?
-    private var bottomBorderView : UIView?
+    private var _shape = CAShapeLayer()
+    private var _setup = false
     
-    private var leftHConstraints : [NSLayoutConstraint]?
-    private var leftVConstraints : [NSLayoutConstraint]?
-    private var rightHConstraints : [NSLayoutConstraint]?
-    private var rightVConstraints : [NSLayoutConstraint]?
-    private var topHConstraints : [NSLayoutConstraint]?
-    private var topVConstraints : [NSLayoutConstraint]?
-    private var bottomHConstraints : [NSLayoutConstraint]?
-    private var bottomVConstraints : [NSLayoutConstraint]?
-
     // MARK: init
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,8 +38,20 @@ class WOWSearchBar: UISearchBar {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setup()
     }
     
+    func setup() {
+        if !_setup {
+            _setup = true
+            
+            self._shape = CAShapeLayer()
+            self._shape.lineCap = kCALineCapRound
+            self._shape.lineJoin = kCALineJoinRound
+            self.layer.addSublayer(self._shape)
+        }
+    }
+        
     // MARK: private properties
     private var textField : UITextField? {
         get {
@@ -64,7 +73,6 @@ class WOWSearchBar: UISearchBar {
         }
         set {
             textField?.textColor = newValue
-            refreshDisplay()
         }
     }
 
@@ -80,7 +88,6 @@ class WOWSearchBar: UISearchBar {
         }
         set {
             textField?.backgroundColor = newValue
-            refreshDisplay()
         }
     }
 
@@ -95,7 +102,6 @@ class WOWSearchBar: UISearchBar {
         set {
             self.backgroundImage = UIImage() // must be set the image to nil otherwise can't change the backgroud color
             self.backgroundColor = newValue
-            refreshDisplay()
         }
     }
     
@@ -109,7 +115,6 @@ class WOWSearchBar: UISearchBar {
         }
         set {
             textField?.layer.borderColor = newValue?.cgColor
-            refreshDisplay()
         }
     }
 
@@ -123,7 +128,6 @@ class WOWSearchBar: UISearchBar {
         }
         set {
             textField?.layer.borderWidth = newValue
-            refreshDisplay()
         }
     }
     
@@ -137,7 +141,6 @@ class WOWSearchBar: UISearchBar {
         }
         set {
             textField?.layer.cornerRadius = newValue
-            refreshDisplay()
         }
     }
     
@@ -152,7 +155,6 @@ class WOWSearchBar: UISearchBar {
         set {
             let str = NSAttributedString(string: (textField?.placeholder!)!, attributes: [NSForegroundColorAttributeName:newValue ?? UIColor.darkGray])
             textField?.attributedPlaceholder = str
-            refreshDisplay()
         }
     }
     
@@ -169,7 +171,6 @@ class WOWSearchBar: UISearchBar {
                 glassIconView.image = glassIconView.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
                 glassIconView.tintColor = newValue
             }
-            refreshDisplay()
         }
     }
     
@@ -183,7 +184,6 @@ class WOWSearchBar: UISearchBar {
         }
         set {
             textField?.tintColor = newValue
-            refreshDisplay()
         }
     }
     
@@ -197,22 +197,6 @@ class WOWSearchBar: UISearchBar {
         }
         set {
             setClearColor(color: newValue!, forState: .normal)
-            refreshDisplay()
-        }
-    }
-    
-    /**
-     SearchBar corner radius.
-     */
-    @IBInspectable
-    open var containerCornerRadius : CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            self.layer.cornerRadius = newValue
-            self.layer.masksToBounds = newValue > 0
-            refreshDisplay()
         }
     }
     
@@ -220,12 +204,10 @@ class WOWSearchBar: UISearchBar {
      SearchBar border color.
      */
     @IBInspectable
-    open var containerBorderColor : UIColor? {
-        get {
-            return UIColor(cgColor: self.layer.borderColor!)
-        }
-        set {
-            self.layer.borderColor = newValue?.cgColor
+    open var containerBorderColor : UIColor = UIColor.clear {
+        didSet {
+            self._shape.strokeColor = self.containerBorderColor.cgColor
+            refreshDisplay()
         }
     }
     
@@ -233,145 +215,48 @@ class WOWSearchBar: UISearchBar {
      SearchBar border width.
      */
     @IBInspectable
-    open var containerBorderWidth : CGFloat {
-        get {
-            return self.layer.borderWidth
-        }
-        set {
-            self.layer.borderWidth = newValue
+    open var containerBorderWidth : CGFloat = 0 {
+        didSet {
+            self._shape.lineWidth = self.containerBorderWidth
+            refreshDisplay()
         }
     }
     
     @IBInspectable
-    open var containerBorderOffset : CGFloat = 0
+    open var containerBorderOffset : CGFloat = 0 {
+        didSet {
+            refreshDisplay()
+        }
+    }
     
     /**
      SearchBar left border width.
      */
     @IBInspectable
-    open var leftBorder: CGFloat {
-        get {
-            return 0.0
-        }
-        set {
-            if leftBorderView != nil {
-                leftBorderView?.removeFromSuperview()
-                self.removeConstraints(leftHConstraints!)
-                self.removeConstraints(leftVConstraints!)
-            }
-            
-            let line = UIView(frame: CGRect(x: 0.0, y: 0.0, width: newValue, height: self.bounds.height))
-            line.translatesAutoresizingMaskIntoConstraints = false
-            line.backgroundColor = self.containerBorderColor
-            self.leftBorderView = line
-            self.addSubview(line)
-            
-            let views = ["line": line]
-            let metrics = ["lineWidth": newValue]
-            
-            self.leftHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "|[line(==lineWidth)]", options: [], metrics: metrics, views: views)
-            self.leftVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[line]|", options: [], metrics: nil, views: views)
-            
-            self.addConstraints(self.leftHConstraints!)
-            self.addConstraints(self.leftVConstraints!)
+    open var leftBorder: CGFloat = 0 {
+        didSet {
+            refreshDisplay()
         }
     }
     
     @IBInspectable
-    open var topBorder: CGFloat {
-        get {
-            return 0.0
-        }
-        set {
-            if topBorderView != nil {
-                topBorderView?.removeFromSuperview()
-                self.removeConstraints(topHConstraints!)
-                self.removeConstraints(topVConstraints!)
-            }
-
-            let line = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.bounds.width, height: newValue))
-            line.translatesAutoresizingMaskIntoConstraints = false
-            line.backgroundColor = self.containerBorderColor
-            self.topBorderView = line
-            self.addSubview(line)
-            
-            let views = ["line": line]
-            let metrics = ["lineWidth": newValue]
-            self.topHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "|[line]|", options: [], metrics: nil, views: views)
-            self.topVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[line(==lineWidth)]", options: [], metrics: metrics, views: views)
-            self.addConstraints(self.topHConstraints!)
-            self.addConstraints(self.topVConstraints!)
+    open var topBorder: CGFloat = 0 {
+        didSet {
+            refreshDisplay()
         }
     }
     
     @IBInspectable
-    open var rightBorder: CGFloat {
-        get {
-            return 0.0
-        }
-        set {
-            if rightBorderView != nil {
-                rightBorderView?.removeFromSuperview()
-                self.removeConstraints(rightHConstraints!)
-                self.removeConstraints(rightVConstraints!)
-            }
-
-            let line = UIView(frame: CGRect(x: self.bounds.width, y: 0.0, width: newValue, height: self.bounds.height))
-            line.translatesAutoresizingMaskIntoConstraints = false
-            line.backgroundColor = self.containerBorderColor
-            self.rightBorderView = line
-            self.addSubview(line)
-            
-            let views = ["line": line]
-            let metrics = ["lineWidth": newValue]
-            self.rightHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "[line(==lineWidth)]|", options: [], metrics: metrics, views: views)
-            self.rightVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[line]|", options: [], metrics: nil, views: views)
-            self.addConstraints(self.rightHConstraints!)
-            self.addConstraints(self.rightVConstraints!)
+    open var rightBorder: CGFloat = 0 {
+        didSet {
+            refreshDisplay()
         }
     }
     
     @IBInspectable
-    open var bottomBorder: CGFloat {
-        get {
-            return 0.0
-        }
-        set {
-/*
-            if bottomBorderView != nil {
-                bottomBorderView?.removeFromSuperview()
-                self.removeConstraints(bottomHConstraints!)
-                self.removeConstraints(bottomVConstraints!)
-            }
-
-            let line = UIView(frame: CGRect(x: 0.0, y: self.bounds.height, width: self.bounds.width, height: newValue))
-            line.translatesAutoresizingMaskIntoConstraints = false
-            line.backgroundColor = self.containerBorderColor
-            self.bottomBorderView = line
-            self.addSubview(line)
-
-            let views = ["line": line]
-            let metrics = ["lineWidth": newValue]
-            self.bottomHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "|[line]|", options: [], metrics: nil, views: views)
-            self.bottomVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[line(==lineWidth)]|", options: [], metrics: metrics, views: views)
-            self.addConstraints(self.bottomHConstraints!)
-            self.addConstraints(self.bottomVConstraints!)
-*/
-            if bottomBorderLayer != nil {
-                self.bottomBorderLayer?.removeFromSuperlayer()
-            }
-            
-            let border = CALayer()
-            let width = CGFloat(1.0)
-            border.borderColor = self.containerBorderColor?.cgColor
-            border.frame = CGRect(x:0, y: self.frame.size.height - width - self.containerBorderOffset,  width:  self.frame.size.width, height: width)
-            
-            border.borderWidth = width
-            self.bottomBorderLayer = border
-            
-            self.layer.addSublayer(border)
-            self.layer.masksToBounds = true
-
+    open var bottomBorder: CGFloat = 0 {
+        didSet {
+            refreshDisplay()
         }
     }
     
@@ -389,4 +274,29 @@ class WOWSearchBar: UISearchBar {
             clearButton.tintColor = color
         }
     }
+    
+    override func draw(_ rect: CGRect) {
+        
+        let path = UIBezierPath()
+        
+        if self.leftBorder > 0 {
+            path.move(to:CGPoint(x:self.containerBorderOffset, y:0))
+            path.addLine(to:CGPoint(x:self.containerBorderOffset,y:self.frame.size.height))
+        }
+        if self.rightBorder > 0 {
+            path.move(to:CGPoint(x:self.frame.size.width - self.containerBorderOffset,y:0))
+            path.addLine(to:CGPoint(x:self.frame.size.width - self.containerBorderOffset,y:self.frame.size.height))
+        }
+        if self.bottomBorder > 0 {
+            path.move(to:CGPoint(x:0,y:self.frame.size.height - self.containerBorderOffset))
+            path.addLine(to:CGPoint(x:self.frame.size.width,y:self.frame.size.height - self.containerBorderOffset))
+        }
+        if self.topBorder > 0 {
+            path.move(to:CGPoint(x:0,y:self.containerBorderOffset))
+            path.addLine(to:CGPoint(x:self.frame.size.width,y:self.containerBorderOffset))
+        }
+        
+        self._shape.path = path.cgPath
+    }
+    
 }
