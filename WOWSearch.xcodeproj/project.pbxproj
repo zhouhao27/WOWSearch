@@ -16,6 +16,7 @@
 		3867E5B31DC8351000033A23 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867E5B21DC8351000033A23 /* SearchCell.swift */; };
 		3867E5B51DC8380200033A23 /* UIImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867E5B41DC8380200033A23 /* UIImage+Tint.swift */; };
 		3867E5B71DC846E100033A23 /* WOWSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867E5B61DC846E100033A23 /* WOWSearchController.swift */; };
+		3867E5B91DC85A3F00033A23 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3867E5B81DC85A3F00033A23 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3867E5B21DC8351000033A23 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		3867E5B41DC8380200033A23 /* UIImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Tint.swift"; sourceTree = "<group>"; };
 		3867E5B61DC846E100033A23 /* WOWSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WOWSearchController.swift; sourceTree = "<group>"; };
+		3867E5B81DC85A3F00033A23 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 		3867E5911DC82EC300033A23 = {
 			isa = PBXGroup;
 			children = (
+				3867E5B81DC85A3F00033A23 /* README.md */,
 				3867E59C1DC82EC300033A23 /* WOWSearch */,
 				3867E59B1DC82EC300033A23 /* Products */,
 			);
@@ -160,6 +163,7 @@
 				3867E5A01DC82EC300033A23 /* ViewController.swift in Sources */,
 				3867E5B31DC8351000033A23 /* SearchCell.swift in Sources */,
 				3867E5B11DC82FAE00033A23 /* WOWSearchBar.swift in Sources */,
+				3867E5B91DC85A3F00033A23 /* README.md in Sources */,
 				3867E5B71DC846E100033A23 /* WOWSearchController.swift in Sources */,
 				3867E59E1DC82EC300033A23 /* AppDelegate.swift in Sources */,
 				3867E5B51DC8380200033A23 /* UIImage+Tint.swift in Sources */,
