@@ -74,6 +74,49 @@ class WOWSearchBar: UISearchBar {
     // TODO: text font, size etc
     
     /**
+     Color for placeholder text.
+     */
+    @IBInspectable
+    open var placeholderColor : UIColor? {
+        get {
+            return nil
+        }
+        set {
+            let str = NSAttributedString(string: (textField?.placeholder!)!, attributes: [NSForegroundColorAttributeName:newValue ?? UIColor.darkGray])
+            textField?.attributedPlaceholder = str
+        }
+    }
+    
+    /**
+     Color for search icon
+     */
+    @IBInspectable
+    open var searchIconColor : UIColor? {
+        get {
+            return nil
+        }
+        set {
+            if let glassIconView = textField?.leftView as? UIImageView {
+                glassIconView.image = glassIconView.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+                glassIconView.tintColor = newValue
+            }
+        }
+    }
+    
+    /**
+     Tint color for clear icon in normal state.
+     */
+    @IBInspectable
+    open var tintForNormalClear : UIColor? {
+        get {
+            return nil
+        }
+        set {
+            setClearColor(color: newValue!, forState: .normal)
+        }
+    }
+
+    /**
      Background color in TextField.
      */
     @IBInspectable
@@ -83,20 +126,6 @@ class WOWSearchBar: UISearchBar {
         }
         set {
             textField?.backgroundColor = newValue
-        }
-    }
-
-    /**
-     Background color for container view. It's actually the background of UISearchBar.
-     */
-    @IBInspectable
-    open var containerBackgroundColor : UIColor? {
-        get {
-            return self.backgroundColor
-        }
-        set {
-            self.backgroundImage = UIImage() // must be set the image to nil otherwise can't change the backgroud color
-            self.backgroundColor = newValue
         }
     }
     
@@ -142,36 +171,6 @@ class WOWSearchBar: UISearchBar {
     }
     
     /**
-     Color for placeholder text.
-     */    
-    @IBInspectable
-    open var placeholderColor : UIColor? {
-        get {
-            return nil
-        }
-        set {
-            let str = NSAttributedString(string: (textField?.placeholder!)!, attributes: [NSForegroundColorAttributeName:newValue ?? UIColor.darkGray])
-            textField?.attributedPlaceholder = str
-        }
-    }
-    
-    /**
-     Color for search icon
-     */    
-    @IBInspectable
-    open var searchIconColor : UIColor? {
-        get {
-            return nil
-        }
-        set {
-            if let glassIconView = textField?.leftView as? UIImageView {
-                glassIconView.image = glassIconView.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-                glassIconView.tintColor = newValue
-            }
-        }
-    }
-    
-    /**
      Tint color for UITextField, used for such as cursor, clear icon button highlight color, etc...
      */
     @IBInspectable
@@ -185,18 +184,19 @@ class WOWSearchBar: UISearchBar {
     }
     
     /**
-     Tint color for clear icon in normal state.
+     Background color for container view. It's actually the background of UISearchBar.
      */
     @IBInspectable
-    open var tintForNormalClear : UIColor? {
+    open var containerBackgroundColor : UIColor? {
         get {
-            return nil
+            return self.backgroundColor
         }
         set {
-            setClearColor(color: newValue!, forState: .normal)
+            self.backgroundImage = UIImage() // must be set the image to nil otherwise can't change the backgroud color
+            self.backgroundColor = newValue
         }
     }
-    
+
     /**
      SearchBar border color.
      */
@@ -257,6 +257,7 @@ class WOWSearchBar: UISearchBar {
         }
     }
     
+    // MARK: private methods
     private func refreshDisplay() {
         self.setNeedsDisplay()
     }
@@ -275,6 +276,8 @@ class WOWSearchBar: UISearchBar {
     override func draw(_ rect: CGRect) {
         
         let path = UIBezierPath()
+        self._shape.strokeColor = self.containerBorderColor.cgColor
+        self._shape.lineWidth = self.containerBorderWidth
         
         if self.containerLeftBorder {
             path.move(to:CGPoint(x:self.containerBorderOffset, y:0))

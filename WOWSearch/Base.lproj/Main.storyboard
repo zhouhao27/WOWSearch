@@ -25,14 +25,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" rowHeight="50" id="UuO-3w-S4h" customClass="SearchCell" customModule="WOWSearch" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Search2Cell" rowHeight="50" id="LE9-n2-rVb" customClass="SearchCell" customModule="WOWSearch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UuO-3w-S4h" id="f5l-7r-5g4">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LE9-n2-rVb" id="lvG-Nl-mMV">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <searchBar contentMode="redraw" placeholder="Search all..." translatesAutoresizingMaskIntoConstraints="NO" id="KAH-Sm-By3" customClass="WOWSearchBar" customModule="WOWSearch" customModuleProvider="target">
+                                                <searchBar contentMode="redraw" placeholder="Search all..." translatesAutoresizingMaskIntoConstraints="NO" id="HOe-jw-AJZ" customClass="WOWSearchBar" customModule="WOWSearch" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="2" width="375" height="44"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <userDefinedRuntimeAttributes>
@@ -92,14 +92,55 @@
                                                 </searchBar>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="KAH-Sm-By3" firstAttribute="leading" secondItem="f5l-7r-5g4" secondAttribute="leading" id="CTj-fd-bNl"/>
-                                                <constraint firstItem="KAH-Sm-By3" firstAttribute="centerY" secondItem="f5l-7r-5g4" secondAttribute="centerY" id="L82-9N-xVe"/>
-                                                <constraint firstAttribute="trailing" secondItem="KAH-Sm-By3" secondAttribute="trailing" id="hjn-4a-yUU"/>
+                                                <constraint firstItem="HOe-jw-AJZ" firstAttribute="centerY" secondItem="lvG-Nl-mMV" secondAttribute="centerY" id="cUF-2L-SFt"/>
+                                                <constraint firstAttribute="trailing" secondItem="HOe-jw-AJZ" secondAttribute="trailing" id="iOe-S3-0JT"/>
+                                                <constraint firstItem="HOe-jw-AJZ" firstAttribute="leading" secondItem="lvG-Nl-mMV" secondAttribute="leading" id="xFj-4Q-84W"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="searchBar" destination="KAH-Sm-By3" id="KCl-KG-gBi"/>
+                                            <outlet property="searchBar" destination="HOe-jw-AJZ" id="OJf-bq-rPQ"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="44" id="AEP-1I-kGA">
+                                        <rect key="frame" x="0.0" y="78" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AEP-1I-kGA" id="rfh-Ex-ChD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <searchBar contentMode="redraw" placeholder="Search in tableview" translatesAutoresizingMaskIntoConstraints="NO" id="eDp-xU-UVd" customClass="WOWSearchBar" customModule="WOWSearch" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="searchIconColor">
+                                                            <color key="value" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="contentBackgroundColor">
+                                                            <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="containerBackgroundColor">
+                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="containerBorderWidth">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="containerLeftBorder" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="containerBorderColor">
+                                                            <color key="value" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </searchBar>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eDp-xU-UVd" firstAttribute="leading" secondItem="rfh-Ex-ChD" secondAttribute="leading" id="KhF-GZ-z93"/>
+                                                <constraint firstAttribute="bottom" secondItem="eDp-xU-UVd" secondAttribute="bottom" id="SlV-4Z-d68"/>
+                                                <constraint firstItem="eDp-xU-UVd" firstAttribute="top" secondItem="rfh-Ex-ChD" secondAttribute="top" id="aTN-dd-0Lr"/>
+                                                <constraint firstAttribute="trailing" secondItem="eDp-xU-UVd" secondAttribute="trailing" id="eAe-iY-yWq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

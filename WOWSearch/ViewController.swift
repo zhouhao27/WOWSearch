@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
+/*
         self.searchController = WOWSearchController(searchViewController: nil)
         
         self.searchController.searchResultsUpdater = self
@@ -50,6 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.searchController.searchBar.setImage(UIImage(named:"Clear"), for: UISearchBarIcon.clear, state: .normal)
         self.searchController.searchBar.setImage(UIImage(named:"ClearHighlight"), for: UISearchBarIcon.clear, state: .highlighted)
         self.searchController.customSearchBar.tintForNormalClear = UIColor.orange
+ */
     }
 
     // --- UISearchResultsUpdating
@@ -62,8 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! SearchCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)        
         return cell
     }
 
