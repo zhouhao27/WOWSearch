@@ -4,7 +4,7 @@ Customized UISearchBar, UISearchController
 
 ## In storyboard
 
-![](images/storyboard.png)
+![](images/storyboard1.png)
 
 ## screenshot
 
