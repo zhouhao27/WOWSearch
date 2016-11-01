@@ -136,6 +136,8 @@ class WOWSearchBar: UISearchBar {
         }
         set {
             textField?.layer.cornerRadius = newValue
+            textField?.layer.masksToBounds = newValue > 0
+            textField?.clipsToBounds = newValue > 0
         }
     }
     

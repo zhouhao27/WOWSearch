@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         self.navigationItem.titleView = self.searchController.searchBar
         
-        self.searchController.customSearchBar.containerBackgroundColor = UIColor.green
+        self.searchController.customSearchBar.containerBackgroundColor = UIColor.clear
         self.searchController.customSearchBar.textColor = UIColor.white
         self.searchController.customSearchBar.contentBackgroundColor = UIColor.clear
         self.searchController.customSearchBar.placeholderColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8)
@@ -43,9 +43,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.searchController.customSearchBar.containerBorderOffset = 5
         self.searchController.customSearchBar.containerBorderWidth = 1
         self.searchController.customSearchBar.containerBottomBorder = true
-        self.searchController.customSearchBar.containerRightBorder = true
-        self.searchController.customSearchBar.containerLeftBorder = true
-        self.searchController.customSearchBar.containerTopBorder = true
+//        self.searchController.customSearchBar.containerRightBorder = true
+//        self.searchController.customSearchBar.containerLeftBorder = true
+//        self.searchController.customSearchBar.containerTopBorder = true
         
         self.searchController.searchBar.setImage(UIImage(named:"Clear"), for: UISearchBarIcon.clear, state: .normal)
         self.searchController.searchBar.setImage(UIImage(named:"ClearHighlight"), for: UISearchBarIcon.clear, state: .highlighted)
