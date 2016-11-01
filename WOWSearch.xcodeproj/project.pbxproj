@@ -1,0 +1,331 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3867E59E1DC82EC300033A23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867E59D1DC82EC300033A23 /* AppDelegate.swift */; };
+		3867E5A01DC82EC300033A23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867E59F1DC82EC300033A23 /* ViewController.swift */; };
+		3867E5A31DC82EC300033A23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3867E5A11DC82EC300033A23 /* Main.storyboard */; };
+		3867E5A51DC82EC300033A23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3867E5A41DC82EC300033A23 /* Assets.xcassets */; };
+		3867E5A81DC82EC300033A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3867E5A61DC82EC300033A23 /* LaunchScreen.storyboard */; };
+		3867E5B11DC82FAE00033A23 /* WOWSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867E5B01DC82FAE00033A23 /* WOWSearchBar.swift */; };
+		3867E5B31DC8351000033A23 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867E5B21DC8351000033A23 /* SearchCell.swift */; };
+		3867E5B51DC8380200033A23 /* UIImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867E5B41DC8380200033A23 /* UIImage+Tint.swift */; };
+		3867E5B71DC846E100033A23 /* WOWSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867E5B61DC846E100033A23 /* WOWSearchController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3867E59A1DC82EC300033A23 /* WOWSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOWSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3867E59D1DC82EC300033A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3867E59F1DC82EC300033A23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3867E5A21DC82EC300033A23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3867E5A41DC82EC300033A23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3867E5A71DC82EC300033A23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3867E5A91DC82EC300033A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3867E5B01DC82FAE00033A23 /* WOWSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WOWSearchBar.swift; sourceTree = "<group>"; };
+		3867E5B21DC8351000033A23 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		3867E5B41DC8380200033A23 /* UIImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Tint.swift"; sourceTree = "<group>"; };
+		3867E5B61DC846E100033A23 /* WOWSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WOWSearchController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3867E5971DC82EC300033A23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3867E5911DC82EC300033A23 = {
+			isa = PBXGroup;
+			children = (
+				3867E59C1DC82EC300033A23 /* WOWSearch */,
+				3867E59B1DC82EC300033A23 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3867E59B1DC82EC300033A23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3867E59A1DC82EC300033A23 /* WOWSearch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3867E59C1DC82EC300033A23 /* WOWSearch */ = {
+			isa = PBXGroup;
+			children = (
+				3867E5AF1DC82FAE00033A23 /* src */,
+				3867E59D1DC82EC300033A23 /* AppDelegate.swift */,
+				3867E59F1DC82EC300033A23 /* ViewController.swift */,
+				3867E5A11DC82EC300033A23 /* Main.storyboard */,
+				3867E5A41DC82EC300033A23 /* Assets.xcassets */,
+				3867E5A61DC82EC300033A23 /* LaunchScreen.storyboard */,
+				3867E5A91DC82EC300033A23 /* Info.plist */,
+				3867E5B21DC8351000033A23 /* SearchCell.swift */,
+			);
+			path = WOWSearch;
+			sourceTree = "<group>";
+		};
+		3867E5AF1DC82FAE00033A23 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				3867E5B01DC82FAE00033A23 /* WOWSearchBar.swift */,
+				3867E5B41DC8380200033A23 /* UIImage+Tint.swift */,
+				3867E5B61DC846E100033A23 /* WOWSearchController.swift */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3867E5991DC82EC300033A23 /* WOWSearch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3867E5AC1DC82EC300033A23 /* Build configuration list for PBXNativeTarget "WOWSearch" */;
+			buildPhases = (
+				3867E5961DC82EC300033A23 /* Sources */,
+				3867E5971DC82EC300033A23 /* Frameworks */,
+				3867E5981DC82EC300033A23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WOWSearch;
+			productName = WOWSearch;
+			productReference = 3867E59A1DC82EC300033A23 /* WOWSearch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3867E5921DC82EC300033A23 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Zhou Hao";
+				TargetAttributes = {
+					3867E5991DC82EC300033A23 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = N39FB4CHYV;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3867E5951DC82EC300033A23 /* Build configuration list for PBXProject "WOWSearch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3867E5911DC82EC300033A23;
+			productRefGroup = 3867E59B1DC82EC300033A23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3867E5991DC82EC300033A23 /* WOWSearch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3867E5981DC82EC300033A23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3867E5A81DC82EC300033A23 /* LaunchScreen.storyboard in Resources */,
+				3867E5A51DC82EC300033A23 /* Assets.xcassets in Resources */,
+				3867E5A31DC82EC300033A23 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3867E5961DC82EC300033A23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3867E5A01DC82EC300033A23 /* ViewController.swift in Sources */,
+				3867E5B31DC8351000033A23 /* SearchCell.swift in Sources */,
+				3867E5B11DC82FAE00033A23 /* WOWSearchBar.swift in Sources */,
+				3867E5B71DC846E100033A23 /* WOWSearchController.swift in Sources */,
+				3867E59E1DC82EC300033A23 /* AppDelegate.swift in Sources */,
+				3867E5B51DC8380200033A23 /* UIImage+Tint.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3867E5A11DC82EC300033A23 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3867E5A21DC82EC300033A23 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3867E5A61DC82EC300033A23 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3867E5A71DC82EC300033A23 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3867E5AA1DC82EC300033A23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3867E5AB1DC82EC300033A23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3867E5AD1DC82EC300033A23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N39FB4CHYV;
+				INFOPLIST_FILE = WOWSearch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wowtv.WOWSearch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		3867E5AE1DC82EC300033A23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N39FB4CHYV;
+				INFOPLIST_FILE = WOWSearch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wowtv.WOWSearch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3867E5951DC82EC300033A23 /* Build configuration list for PBXProject "WOWSearch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3867E5AA1DC82EC300033A23 /* Debug */,
+				3867E5AB1DC82EC300033A23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3867E5AC1DC82EC300033A23 /* Build configuration list for PBXNativeTarget "WOWSearch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3867E5AD1DC82EC300033A23 /* Debug */,
+				3867E5AE1DC82EC300033A23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3867E5921DC82EC300033A23 /* Project object */;
+}
