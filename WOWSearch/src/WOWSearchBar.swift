@@ -82,8 +82,10 @@ class WOWSearchBar: UISearchBar {
             return nil
         }
         set {
-            let str = NSAttributedString(string: (textField?.placeholder!)!, attributes: [NSForegroundColorAttributeName:newValue ?? UIColor.darkGray])
-            textField?.attributedPlaceholder = str
+            if let _ = textField?.placeholder {
+                let str = NSAttributedString(string: (textField?.placeholder!)!, attributes: [NSForegroundColorAttributeName:newValue ?? UIColor.darkGray])
+                textField?.attributedPlaceholder = str
+            }
         }
     }
     

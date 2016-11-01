@@ -19,7 +19,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-/*
         self.searchController = WOWSearchController(searchViewController: nil)
         
         self.searchController.searchResultsUpdater = self
@@ -51,7 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.searchController.searchBar.setImage(UIImage(named:"Clear"), for: UISearchBarIcon.clear, state: .normal)
         self.searchController.searchBar.setImage(UIImage(named:"ClearHighlight"), for: UISearchBarIcon.clear, state: .highlighted)
         self.searchController.customSearchBar.tintForNormalClear = UIColor.orange
- */
+ 
     }
 
     // --- UISearchResultsUpdating

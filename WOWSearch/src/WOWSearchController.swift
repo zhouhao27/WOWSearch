@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WOWSearchController: UISearchController, UISearchBarDelegate {
+class WOWSearchController: UISearchController {
 
     // MARK: init
     required init(coder aDecoder: NSCoder) {
@@ -21,15 +21,13 @@ class WOWSearchController: UISearchController, UISearchBarDelegate {
 
     init(searchViewController:UIViewController!) {
         super.init(searchResultsController: searchViewController)
-        
-        searchBar.delegate = self
     }
 
     // MARK: properties
     lazy var customSearchBar: WOWSearchBar = {
         [unowned self] in
         let result = WOWSearchBar(frame: CGRect.zero)
-        result.delegate = self
+//        result.delegate = self
         return result
         }()
     
@@ -40,19 +38,19 @@ class WOWSearchController: UISearchController, UISearchBarDelegate {
     }
     
     // MARK: UISearchBarDelegate
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if(!(searchBar.text?.isEmpty)!)
-        {
-            self.isActive=true
-        }
-        else
-        {
-            self.isActive=false
-        }
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if(!(searchBar.text?.isEmpty)!)
+//        {
+//            self.isActive=true
+//        }
+//        else
+//        {
+//            self.isActive=false
+//        }
+//    }
+//    
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.resignFirstResponder()
+//    }
     
 }
